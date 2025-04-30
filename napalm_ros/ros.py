@@ -341,7 +341,7 @@ class ROSDriver(NetworkDriver):
     def get_facts(self):
         resource = tuple(self.api('/system/resource/print'))[0]
         identity = tuple(self.api('/system/identity/print'))[0]
-        if resource['board-name'] == 'CHR':
+        if resource['board-name'].startswith('CHR'):
             serial_number = ''
         else:
             routerboard = tuple(self.api('/system/routerboard/print'))[0]
